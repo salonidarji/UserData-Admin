@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">Users</h1>
+
+  <!-- DataTales Example -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">
+        All Users
+      </h6>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table
+          class="table table-bordered"
+          id="dataTable"
+          width="100%"
+          cellspacing="0"
+        >
+          <thead>
+            <tr>
+              <th>Email Id</th>
+              <th>Name</th>
+              <th>Mobile</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Email Id</th>
+              <th>Name</th>
+              <th>Mobile</th>
+              <th>Action</th>
+            </tr>
+          </tfoot>
+          <tbody *ngFor="let item of user_arr">
+            <tr>
+              <td>{{ item.user_id }}</td>
+              <td>{{ item.user_name }}</td>
+              <td>{{ item.user_mobile }}</td>
+              <td colspan="3">
+                <button
+                  class="btn btn-primary btn-md"
+                  (click)="deleteUser(item.user_id)"
+                >
+                  Delete
+                </button>
+                <!-- <button
+                  class="btn btn-primary btn-md"
+                  (click)="singleUser(item.user_id)"
+                >
+                  View
+                </button> -->
+                <button
+                  class="btn btn-primary btn-md"
+                  routerLink="/updateUser/{{ item.user_id }}"
+                >
+                  update User
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
